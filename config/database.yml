@@ -1,0 +1,18 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+
+development:
+  <<: *default
+  database: yasuko-twitter_development
+
+test:
+  <<: *default
+  database: yasuko-twitter_test
+
+production:
+  <<: *default
+  database: yasuko-twitter_production
+  username: yasuko-twitter
+  password: <%= ENV['YASUKO-TWITTER_DATABASE_PASSWORD'] %>
