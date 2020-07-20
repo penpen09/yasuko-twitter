@@ -1,3 +1,3 @@
 Rails.application.routes.draw do
-  get '/mytweets',to: 'mytweets#index'
+  resources :mytweets
 end
