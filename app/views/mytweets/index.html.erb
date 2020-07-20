@@ -1,3 +1,14 @@
 <%= render 'header' %>
 <h1>mytweets一覧</h1>
+<table>
+  <tr>
+    <th>内容</th>
+  </tr>
+<% @mytweets.each do |mytweet| %>
+  <tr>
+    <td><%= mytweet.content %></td>
+  </tr>
+<% end %>
+</table>
+<%= link_to 'つぶやく', new_mytweet_path %>
 <%= render 'footer' %>
