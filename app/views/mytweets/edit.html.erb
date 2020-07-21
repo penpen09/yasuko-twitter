@@ -1,17 +1,4 @@
-<%= form_with(model: @mytweet, local:true) do |form| %>
-  <% if @mytweet.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= @mytweet.errors.count %>件のエラーがあります！</h2>
-      <ul>
-      <% @mytweet.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-  <div class="mytweet_content">
-    <%= form.label :tweet %>
-    <%= form.text_area :content %>
-  </div>
-  <%= form.submit %>
-<% end %>
+<%= render 'header' %>
+<h2>編集する</h2>
+<%= render 'form' %>
+<%= render 'footer' %>

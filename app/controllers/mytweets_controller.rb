@@ -1,4 +1,5 @@
 class MytweetsController < ApplicationController
+  before_action :set_mytweet, only: [:shoe, :edit, :update]
   def index
     @mytweets = Mytweet.all
   end
@@ -32,5 +33,8 @@ class MytweetsController < ApplicationController
   private
   def mytweet_params
     params.require(:mytweet).permit(:content)
+  end
+  def set_mytweet
+    @mytweet = Mytweet.find(params[:id])
   end
 end
