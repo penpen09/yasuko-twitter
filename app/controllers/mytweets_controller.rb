@@ -8,7 +8,7 @@ class MytweetsController < ApplicationController
   def create
     @mytweet = Mytweet.new(mytweet_params)
     if @mytweet.save
-      redirect_to mytweet_path, notice:"tweetしました"
+      redirect_to mytweets_path, notice:"tweetしました"
     else
       render :new
     end
