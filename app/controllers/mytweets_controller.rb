@@ -26,10 +26,14 @@ class MytweetsController < ApplicationController
   end
   def update
     @mytweet = Mytweet.find(params[:id])
-    if @mytweet.update(mytweet_params)
-      redirect_to mytweets_path, notice:"編集しました"
+    if params[:back]
+      render  :edit
     else
-      render :edit
+      if @mytweet.update(mytweet_params)
+        redirect_to mytweets_path, notice:"編集しました"
+      else
+        render :edit
+      end
     end
   end
   def confirm
