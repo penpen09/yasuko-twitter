@@ -10,6 +10,7 @@
   <tr>
     <td><%= mytweet.content %></td>
     <td><%= link_to '編集',edit_mytweet_path(mytweet.id),class:"btn btn-outline-info"%></td>
+    <td><%= link_to '削除',mytweet_path(mytweet.id),method: :delete, data:{ confirm:'本当に削除しますか？'}, class:"btn btn-outline-danger"%></td>
   </tr>
 <% end %>
 </table>

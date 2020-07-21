@@ -1,5 +1,5 @@
 class MytweetsController < ApplicationController
-  before_action :set_mytweet, only: [:shoe, :edit, :update]
+  before_action :set_mytweet, only: [:shoe, :edit, :update, :destroy]
   def index
     @mytweets = Mytweet.all
   end
@@ -27,6 +27,10 @@ class MytweetsController < ApplicationController
     else
       render :edit
     end
+  end
+  def destroy
+    @mytweet.destroy
+    redirect_to mytweets_path, notice:"tweetを削除しました"
   end
 
 
