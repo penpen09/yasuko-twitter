@@ -16,6 +16,19 @@ class MytweetsController < ApplicationController
   def show
     @mytweet =Mytweet.find(params[:id])
   end
+  def edit
+    @mytweet = Mytweet.find(params[:id])
+  end
+  def update
+    @mytweet = Mytweet.find(params[:id])
+    if @mytweet.update(mytweet_params)
+      redirect_to mytweets_path, notice:"編集しました"
+    else
+      render :edit
+    end
+  end
+
+
   private
   def mytweet_params
     params.require(:mytweet).permit(:content)

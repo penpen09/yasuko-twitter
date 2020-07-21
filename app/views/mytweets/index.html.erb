@@ -9,6 +9,7 @@
 <% @mytweets.each do |mytweet| %>
   <tr>
     <td><%= mytweet.content %></td>
+    <td><%= link_to '編集',edit_mytweet_path(mytweet.id),class:"btn btn-outline-info"%></td>
   </tr>
 <% end %>
 </table>
