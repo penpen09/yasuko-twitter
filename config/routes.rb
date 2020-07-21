@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get '/mytweets/top',to:'mytweets#top'
   resources :mytweets do
     collection do
       post :confirm

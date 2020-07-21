@@ -1,5 +1,6 @@
 <%= render 'header' %>
 <div class="container">
+<div class="content">
 <h1>mytweets一覧</h1>
 <p><%= notice %></p>
 <table>
@@ -15,5 +16,6 @@
 <% end %>
 </table>
 <%= link_to 'つぶやく', new_mytweet_path, class:"btn btn-primary"%>
+</div>
 </div>
 <%= render 'footer' %>

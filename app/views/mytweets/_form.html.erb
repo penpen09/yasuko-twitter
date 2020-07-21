@@ -1,3 +1,4 @@
+<div class="content">
 <%= form_with(model: @mytweet, local:true, url: choose_new_or_edit ) do |form| %>
   <% if @mytweet.errors.any? %>
     <div id="error_explanation">
@@ -16,3 +17,4 @@
   <%= form.submit %>
 <% end %>
 <%= link_to "indexにもどる",mytweets_path %>
+</div>
