@@ -1,0 +1,10 @@
+<%= render 'header' %>
+<h3>以下の内容でつぶやく</h3>
+<%= form_with(model: @mytweet, url: confirm_new_or_edit, method: confirm_form_method, local:true) do |form| %>
+  <%= form.hidden_field :content %>
+  <p>内容：<%= @mytweet.content %></p>
+  <%= form.submit "つぶやく" %>
+  <%= form.submit "もどる" ,name: 'back' %>
+<% end %>
+<%= link_to "indexにもどる",mytweets_path %>
+<%= render 'footer' %>

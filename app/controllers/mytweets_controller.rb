@@ -8,10 +8,14 @@ class MytweetsController < ApplicationController
   end
   def create
     @mytweet = Mytweet.new(mytweet_params)
-    if @mytweet.save
-      redirect_to mytweets_path, notice:"tweetしました"
-    else
+    if params[:back]
       render :new
+    else
+      if @mytweet.save
+        redirect_to mytweets_path, notice:"tweetしました"
+      else
+        render :new
+      end
     end
   end
   def show
@@ -28,6 +32,11 @@ class MytweetsController < ApplicationController
       render :edit
     end
   end
+  def confirm
+    @mytweet = Mytweet.new(mytweet_params)
+    @mytweet.id = params[:id]
+    render :new if @mytweet.invalid?
+  end
   def destroy
     @mytweet.destroy
     redirect_to mytweets_path, notice:"tweetを削除しました"
@@ -36,7 +45,7 @@ class MytweetsController < ApplicationController
 
   private
   def mytweet_params
-    params.require(:mytweet).permit(:content)
+    params.require(:mytweet).permit(:id, :content)
   end
   def set_mytweet
     @mytweet = Mytweet.find(params[:id])
