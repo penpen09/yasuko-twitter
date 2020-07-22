@@ -45,8 +45,6 @@ class MytweetsController < ApplicationController
     @mytweet.destroy
     redirect_to mytweets_path, notice:"tweetを削除しました"
   end
-  def top
-  end
 
   private
   def mytweet_params

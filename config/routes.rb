@@ -1,12 +1,8 @@
 Rails.application.routes.draw do
-  get '/mytweets/top',to:'mytweets#top'
+  root 'top#index'
   resources :mytweets do
-    collection do
-      post :confirm
-      patch :confirm
-    end
-    member do
-      patch :confirm
-    end
+    post :confirm, on: :collection
+    patch :confirm, on: :member
+    # get :top, on: :collection
   end
 end
