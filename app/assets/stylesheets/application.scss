@@ -13,3 +13,8 @@
  *= require_tree .
  *= require_self
  */
+ @import "normalize.scss";
+ @import "header.scss";
+ @import "footer.scss";
+ @import "bootstrap";
+ @import "index.scss";
